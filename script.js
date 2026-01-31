@@ -146,32 +146,32 @@ showLessBtn.addEventListener('click', () => {
   showLessBtn.style.display = 'none';
 });
 
-// 라이트박스 기능 비활성화 (사진 확대 기능 제거)
-// const lightbox = document.getElementById('lightbox');
-// const lightboxImage = document.getElementById('lightbox-image');
-// let currentLightboxIndex = 0;
-//
-// galleryContainer.addEventListener('click', (e) => {
-//   if (e.target.tagName === 'IMG') {
-//     currentLightboxIndex = Number(e.target.dataset.index);
-//     lightboxImage.src = imageList[currentLightboxIndex];
-//     lightbox.style.display = 'flex';
-//   }
-// });
-//
-// document.getElementById('close-lightbox').addEventListener('click', () => {
-//   lightbox.style.display = 'none';
-// });
-//
-// document.getElementById('prev').addEventListener('click', () => {
-//   currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;
-//   lightboxImage.src = imageList[currentLightboxIndex];
-// });
-//
-// document.getElementById('next').addEventListener('click', () => {
-//   currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
-//   lightboxImage.src = imageList[currentLightboxIndex];
-// });
+// 라이트박스 기능 (원본 크기로 보기 - 확대 없음)
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+let currentLightboxIndex = 0;
+
+galleryContainer.addEventListener('click', (e) => {
+  if (e.target.tagName === 'IMG') {
+    currentLightboxIndex = Number(e.target.dataset.index);
+    lightboxImage.src = imageList[currentLightboxIndex];
+    lightbox.style.display = 'flex';
+  }
+});
+
+document.getElementById('close-lightbox').addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;
+  lightboxImage.src = imageList[currentLightboxIndex];
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
+  lightboxImage.src = imageList[currentLightboxIndex];
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
