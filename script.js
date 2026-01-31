@@ -1,6 +1,6 @@
 /* script.js */
 
-const weddingDate = "2025-10-18";
+const weddingDate = "2026-05-09";
 const message = document.getElementById("countdown-message");
 
 function getDayDiffForMessage(targetDate) {
@@ -32,11 +32,11 @@ function getCountdown(targetDate) {
 setInterval(function () {
   const dayDiffMessage = getDayDiffForMessage(weddingDate);
   if (dayDiffMessage > 0) {
-    message.innerHTML = `병진 💗 윤아의 결혼식이\n ${dayDiffMessage}일 남았습니다.`;
+    message.innerHTML = `무현 💗 보람의 결혼식이\n ${dayDiffMessage}일 남았습니다.`;
   } else if (dayDiffMessage === 0) {
-    message.innerHTML = `오늘은 병진 💗 윤아의 결혼식 입니다!`;
+    message.innerHTML = `오늘은 무현 💗 보람의 결혼식 입니다!`;
   } else {
-    message.innerHTML = `병진 💗 윤아의 결혼식이\n ${Math.abs(dayDiffMessage)}일 지났습니다.`;
+    message.innerHTML = `무현 💗 보람의 결혼식이\n ${Math.abs(dayDiffMessage)}일 지났습니다.`;
   }
   const countdown = getCountdown(weddingDate);
   document.getElementById("days").innerText = countdown.days;
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const grid = document.querySelector('.calendar-grid');
-const firstDayIndex = 3;
+const firstDayIndex = 5; // 2026년 5월 1일은 금요일
 for (let i = 0; i < firstDayIndex; i++) {
   const empty = document.createElement('div');
   grid.appendChild(empty);
@@ -67,14 +67,34 @@ for (let d = 1; d <= 31; d++) {
   const dayOfWeek = (firstDayIndex + d - 1) % 7;
   if (dayOfWeek === 0) day.classList.add('sun');
   if (dayOfWeek === 6) day.classList.add('sat');
-  if (d === 18) day.classList.add('today');
-  if ([3, 6, 7, 8, 9].includes(d)) day.classList.add('holiday');
+  if (d === 9) day.classList.add('today'); // 결혼식 날짜
+  if (d === 5) day.classList.add('holiday'); // 어린이날
   day.textContent = d;
   grid.appendChild(day);
 }
 
-// 수정된 썸네일 로딩 코드 (빠른 썸네일 + lazyload + lightbox)
-const imageList = Array.from({ length: 45 }, (_, i) => `gallery/${i + 1}.jpg`);
+// 수정된 썸네일 로딩 코드 (빠른 썸네일 + lazyload)
+const imageList = [
+  'gallery/E_S00025-1.jpg', 'gallery/E_S00060-1.jpg', 'gallery/E_S00152-1.jpg', 'gallery/E_S00310-1.jpg',
+  'gallery/E_S00347-1.jpg', 'gallery/E_S00480-1.jpg', 'gallery/E_S00518-1.jpg', 'gallery/E_S00566-1.jpg',
+  'gallery/E_S00609-1.jpg', 'gallery/E_S00673-1.jpg', 'gallery/E_S00794-1.jpg', 'gallery/E_S00944-1.jpg',
+  'gallery/E_S01005-1.jpg', 'gallery/E_S01108-1.jpg', 'gallery/E_S01142-1.jpg', 'gallery/E_S01171-1.jpg',
+  'gallery/E_S01187-1.jpg', 'gallery/E_S01271-1.jpg', 'gallery/E_S01288-1.jpg', 'gallery/E_S01405-1.jpg',
+  'gallery/E_S01488-1.jpg', 'gallery/E_S01528-1.jpg', 'gallery/E_S01560-1.jpg', 'gallery/E_S01605-1.jpg',
+  'gallery/E_S01635-1.jpg', 'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1.jpg', 'gallery/E_S01742-1.jpg',
+  'gallery/E_S01754-1.jpg', 'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg',
+  'gallery/E_S01858-1.jpg', 'gallery/E_S01917-1.jpg', 'gallery/E_S01950-1.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-04 001.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-08 005.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-11 007.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-12 008.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-13 009.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-14 010.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-15 011.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-16 012.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 013.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 014.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-19 015.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 016.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 017.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-22 018.jpeg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 019.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 020.jpeg'
+];
 const galleryContainer = document.getElementById('gallery-thumbnails');
 const loadMoreBtn = document.getElementById('load-more');
 let currentIndex = 0;
@@ -83,14 +103,11 @@ const showLessBtn = document.getElementById('show-less');
 function loadThumbnails() {
   const nextImages = imageList.slice(currentIndex, currentIndex + 9);
   nextImages.forEach((src, index) => {
-    const lowSrc = src.replace(/\.jpe?g$/, '_low.jpg');
     const img = document.createElement('img');
-    img.src = lowSrc; // 저용량 먼저
-    img.dataset.src = src; // 고화질 대기
+    img.src = src; // 원본 이미지 로드
     img.alt = `사진 ${currentIndex + index + 1}`;
     img.dataset.index = currentIndex + index;
     img.loading = 'lazy';
-    img.classList.add('lazyload');
     galleryContainer.appendChild(img);
   });
   currentIndex += 9;
@@ -129,38 +146,38 @@ showLessBtn.addEventListener('click', () => {
   showLessBtn.style.display = 'none';
 });
 
-// 라이트박스 기능
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightbox-image');
-let currentLightboxIndex = 0;
-
-galleryContainer.addEventListener('click', (e) => {
-  if (e.target.tagName === 'IMG') {
-    currentLightboxIndex = Number(e.target.dataset.index);
-    lightboxImage.src = imageList[currentLightboxIndex];
-    lightbox.style.display = 'flex';
-  }
-});
-
-document.getElementById('close-lightbox').addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-
-document.getElementById('prev').addEventListener('click', () => {
-  currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;
-  lightboxImage.src = imageList[currentLightboxIndex];
-});
-
-document.getElementById('next').addEventListener('click', () => {
-  currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
-  lightboxImage.src = imageList[currentLightboxIndex];
-});
+// 라이트박스 기능 비활성화 (사진 확대 기능 제거)
+// const lightbox = document.getElementById('lightbox');
+// const lightboxImage = document.getElementById('lightbox-image');
+// let currentLightboxIndex = 0;
+//
+// galleryContainer.addEventListener('click', (e) => {
+//   if (e.target.tagName === 'IMG') {
+//     currentLightboxIndex = Number(e.target.dataset.index);
+//     lightboxImage.src = imageList[currentLightboxIndex];
+//     lightbox.style.display = 'flex';
+//   }
+// });
+//
+// document.getElementById('close-lightbox').addEventListener('click', () => {
+//   lightbox.style.display = 'none';
+// });
+//
+// document.getElementById('prev').addEventListener('click', () => {
+//   currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;
+//   lightboxImage.src = imageList[currentLightboxIndex];
+// });
+//
+// document.getElementById('next').addEventListener('click', () => {
+//   currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
+//   lightboxImage.src = imageList[currentLightboxIndex];
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
   // 타이핑 텍스트 효과
   const textElement = document.getElementById('typing-text');
-  const text = "안병진 💗 김윤아 \n만개한 행복의 가운데,\n저희 결혼합니다.";
+  const text = "백무현 💗 이보람 \n서로의 마음에 닿아,\n저희 결혼합니다.";
   let i = 0;
   const typing = () => {
     if (i < text.length) {
@@ -263,34 +280,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Kakao 공유
-  Kakao.init('2f6bea57641d1dd00d85e80a5fb8ba78');
+  Kakao.init('add6eefb5d19f3b8ab4c20cd75e5691e');
   document.getElementById('kakaotalk-sharing-btn').addEventListener('click', function () {
     Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
-        title: '안병진 💗 김윤아 결혼합니다',
-        description: '2025년 10월 18일 토요일 오후 1시, 서울대학교 연구공원 웨딩홀',
-        imageUrl: 'https://yoonakim95.github.io/WeddingInvitation/kakao_thumbnail.jpeg',
+        title: '백무현 💗 이보람 결혼합니다',
+        description: '2026년 5월 9일 토요일 오전 11시, 포스코센터 서관 4층 아트홀',
+        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/kakao_thumbnail.jpeg',
         link: {
-          mobileWebUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
-          webUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
+          mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
+          webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
         },
       },
       buttons: [
         {
           title: '모바일 청첩장 보기',
           link: {
-            mobileWebUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
-            webUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
+            mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
+            webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
           },
         },
-        // {
-        //   title: '카카오맵 열기',
-        //   link: {
-        //     mobileWebUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
-        //     webUrl: 'https://yoonakim95.github.io/WeddingInvitation/',
-        //   },
-        // },
       ],
     });
   });
@@ -320,22 +330,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-    // 서울대학교 연구공원 웨딩홀 텍스트 복사 기능
-    const weddingHallElement = document.getElementById('copy-hall-name');
-    if (weddingHallElement) {
-      weddingHallElement.style.cursor = 'pointer';
-      weddingHallElement.addEventListener('click', () => {
-        navigator.clipboard.writeText(weddingHallElement.innerText).then(() => {
-          copyToast.style.display = 'block';
-          copyToast.style.opacity = '1';
-          copyToast.style.transition = 'opacity 0.5s ease';
-          setTimeout(() => {
-            copyToast.style.opacity = '0';
-          }, 1500);
-        });
+  // 서울대학교 연구공원 웨딩홀 텍스트 복사 기능
+  const weddingHallElement = document.getElementById('copy-hall-name');
+  if (weddingHallElement) {
+    weddingHallElement.style.cursor = 'pointer';
+    weddingHallElement.addEventListener('click', () => {
+      navigator.clipboard.writeText(weddingHallElement.innerText).then(() => {
+        copyToast.style.display = 'block';
+        copyToast.style.opacity = '1';
+        copyToast.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          copyToast.style.opacity = '0';
+        }, 1500);
       });
-    }
-  
+    });
+  }
+
 
   // 계좌 복사
   const accountCopies = document.querySelectorAll('.copy-account');
@@ -366,19 +376,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadKakaoMap() {
   const script = document.createElement("script");
-  script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=2f6bea57641d1dd00d85e80a5fb8ba78&autoload=false";
+  script.src = "https://dapi.kakao.com/v2/maps/sdk.js?appkey=add6eefb5d19f3b8ab4c20cd75e5691e&autoload=false";
   script.onload = () => {
     kakao.maps.load(() => {
       const container = document.getElementById("kakao-map");
       const options = {
-        center: new kakao.maps.LatLng(37.465642, 126.9594921),
-        level: 6,
+        center: new kakao.maps.LatLng(37.50579, 127.0561),
+        level: 4,
         draggable: true,
         scrollwheel: true
       };
       const map = new kakao.maps.Map(container, options);
       new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(37.465642, 126.9594921),
+        position: new kakao.maps.LatLng(37.50579, 127.0561),
         map: map
       });
     });
