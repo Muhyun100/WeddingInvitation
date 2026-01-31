@@ -458,11 +458,37 @@ overflow-wrap: break-word;
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .lightbox-nav {
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+  }
+
+  .lightbox-prev {
+    margin-right: 10px;
+  }
+
+  .lightbox-next {
+    margin-left: 10px;
   }
   
   /* .lightbox img {
