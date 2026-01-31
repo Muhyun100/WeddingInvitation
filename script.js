@@ -146,10 +146,14 @@ showLessBtn.addEventListener('click', () => {
   showLessBtn.style.display = 'none';
 });
 
-// 라이트박스 기능 (원본 크기로 보기 - 확대 없음)
+// 라이트박스 기능 (원본 크기로 보기 + 스와이프)
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 let currentLightboxIndex = 0;
+
+// 터치 스와이프 변수
+let touchStartX = 0;
+let touchEndX = 0;
 
 galleryContainer.addEventListener('click', (e) => {
   if (e.target.tagName === 'IMG') {
@@ -171,6 +175,39 @@ document.getElementById('prev').addEventListener('click', () => {
 document.getElementById('next').addEventListener('click', () => {
   currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
   lightboxImage.src = imageList[currentLightboxIndex];
+});
+
+// 스와이프 기능
+lightbox.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+lightbox.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      // 왼쪽으로 스와이프 -> 다음 사진
+      currentLightboxIndex = (currentLightboxIndex + 1) % imageList.length;
+    } else {
+      // 오른쪽으로 스와이프 -> 이전 사진
+      currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;
+    }
+    lightboxImage.src = imageList[currentLightboxIndex];
+  }
+}
+
+// 배경 클릭 시 닫기
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
 });
 
 
