@@ -111,6 +111,8 @@ li {
 
 .guide-item p {
   margin: 5px 0;
+  font-size: 0.9em;
+  /* 글자 크기 축소 */
 }
 
 
@@ -186,12 +188,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  /* 사진 위쪽 더 보이게 */
+  object-fit: contain;
+  /* 원본 비율 유지 */
+  object-position: center center;
   z-index: 1;
   filter: blur(10px);
   transition: filter 0.5s ease-out;
+  background-color: #1a1a1a;
+  /* 여백 배경색 */
 }
 
 .hero-background img.loaded {
@@ -208,41 +212,45 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  /* 하단 배치 */
   text-align: center;
   padding: 20px;
+  padding-bottom: 60px;
+  /* 하단 여백 */
 }
 
 .hero-text {
   font-family: 'Gowun Batang', cursive;
   font-size: 1.0em;
-  color: #f5e6d3;
-  /* 부드러운 크림색 */
+  color: #fffef8;
+  /* 밝은 아이보리 */
   line-height: 1.5;
   white-space: pre-line;
   pointer-events: auto;
-  margin-bottom: 5cap;
-
+  margin-bottom: 15px;
+  font-weight: 600;
   text-shadow:
-    -1px -1px 3px rgba(0, 0, 0, 0.8),
-    1px -1px 3px rgba(0, 0, 0, 0.8),
-    -1px 1px 3px rgba(0, 0, 0, 0.8),
-    1px 1px 3px rgba(0, 0, 0, 0.8);
+    -1px -1px 4px rgba(0, 0, 0, 0.9),
+    1px -1px 4px rgba(0, 0, 0, 0.9),
+    -1px 1px 4px rgba(0, 0, 0, 0.9),
+    1px 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .hero-subtext {
   font-family: 'Gowun Batang', 'Pacifico';
   font-size: 1.0em;
   pointer-events: auto;
-  color: #f5e6d3;
-  /* 부드러운 크림색 */
+  color: #fffef8;
+  /* 밝은 아이보리 */
   margin-top: 0px;
+  font-weight: 500;
   animation: fadeInUp 3.5s ease-out forwards;
   text-shadow:
-    -1px -1px 3px rgba(0, 0, 0, 0.8),
-    1px -1px 3px rgba(0, 0, 0, 0.8),
-    -1px 1px 3px rgba(0, 0, 0, 0.8),
-    1px 1px 3px rgba(0, 0, 0, 0.8);
+    -1px -1px 4px rgba(0, 0, 0, 0.9),
+    1px -1px 4px rgba(0, 0, 0, 0.9),
+    -1px 1px 4px rgba(0, 0, 0, 0.9),
+    1px 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 section,
@@ -821,14 +829,12 @@ footer {
 
 }
 
-/* 계좌 카드 전체 정렬 (가로 배치) */
+/* 계좌 카드 전체 정렬 (세로 배치 + 작은 크기) */
 .account-cards {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* 신랑/신부 카드 스타일 (작은 크기) */
@@ -836,18 +842,18 @@ footer {
   background-color: #dcf1fd;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  padding: 12px 14px;
-  width: 45%;
-  max-width: 180px;
+  padding: 12px 16px;
+  width: 85%;
+  max-width: 320px;
 }
 
 .account-card[data-target="bride"] {
   background-color: #feeefe;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  padding: 12px 14px;
-  width: 45%;
-  max-width: 180px;
+  padding: 12px 16px;
+  width: 85%;
+  max-width: 320px;
 }
 
 /* 토글 버튼 */

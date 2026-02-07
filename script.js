@@ -32,11 +32,11 @@ function getCountdown(targetDate) {
 setInterval(function () {
   const dayDiffMessage = getDayDiffForMessage(weddingDate);
   if (dayDiffMessage > 0) {
-    message.innerHTML = `무현 💗 보람의 결혼식이\n ${dayDiffMessage}일 남았습니다.`;
+    message.innerHTML = `무현 💗 보람의 결혼식이\n <strong>${dayDiffMessage}일</strong> 남았습니다.`;
   } else if (dayDiffMessage === 0) {
-    message.innerHTML = `오늘은 무현 💗 보람의 결혼식 입니다!`;
+    message.innerHTML = `오늘은 무현 💗 보람의 <strong>결혼식</strong> 입니다!`;
   } else {
-    message.innerHTML = `무현 💗 보람의 결혼식이\n ${Math.abs(dayDiffMessage)}일 지났습니다.`;
+    message.innerHTML = `무현 💗 보람의 결혼식이\n <strong>${Math.abs(dayDiffMessage)}일</strong> 지났습니다.`;
   }
   const countdown = getCountdown(weddingDate);
   document.getElementById("days").innerText = countdown.days;
