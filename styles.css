@@ -111,8 +111,8 @@ li {
 
 .guide-item p {
   margin: 5px 0;
-  font-size: 0.9em;
-  /* 글자 크기 축소 */
+  font-size: 0.75em;
+  /* 글자 크기 75% */
 }
 
 
@@ -223,34 +223,34 @@ body {
 .hero-text {
   font-family: 'Gowun Batang', cursive;
   font-size: 1.0em;
-  color: #fffef8;
-  /* 밝은 아이보리 */
+  color: #2c2c2c;
+  /* 어두운 색 */
   line-height: 1.5;
   white-space: pre-line;
   pointer-events: auto;
   margin-bottom: 15px;
   font-weight: 600;
   text-shadow:
-    -1px -1px 4px rgba(0, 0, 0, 0.9),
-    1px -1px 4px rgba(0, 0, 0, 0.9),
-    -1px 1px 4px rgba(0, 0, 0, 0.9),
-    1px 1px 4px rgba(0, 0, 0, 0.9);
+    -1px -1px 2px rgba(255, 255, 255, 0.8),
+    1px -1px 2px rgba(255, 255, 255, 0.8),
+    -1px 1px 2px rgba(255, 255, 255, 0.8),
+    1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .hero-subtext {
   font-family: 'Gowun Batang', 'Pacifico';
   font-size: 1.0em;
   pointer-events: auto;
-  color: #fffef8;
-  /* 밝은 아이보리 */
+  color: #2c2c2c;
+  /* 어두운 색 */
   margin-top: 0px;
   font-weight: 500;
   animation: fadeInUp 3.5s ease-out forwards;
   text-shadow:
-    -1px -1px 4px rgba(0, 0, 0, 0.9),
-    1px -1px 4px rgba(0, 0, 0, 0.9),
-    -1px 1px 4px rgba(0, 0, 0, 0.9),
-    1px 1px 4px rgba(0, 0, 0, 0.9);
+    -1px -1px 2px rgba(255, 255, 255, 0.8),
+    1px -1px 2px rgba(255, 255, 255, 0.8),
+    -1px 1px 2px rgba(255, 255, 255, 0.8),
+    1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 section,
