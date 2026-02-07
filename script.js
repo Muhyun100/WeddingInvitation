@@ -55,35 +55,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // 기존 DOMContentLoaded 안 전체 유지
 });
 
+// 달력: 5월 3일~9일 (한 주만 표시)
 const grid = document.querySelector('.calendar-grid');
-const firstDayIndex = 5; // 2026년 5월 1일은 금요일
-for (let i = 0; i < firstDayIndex; i++) {
-  const empty = document.createElement('div');
-  grid.appendChild(empty);
-}
-for (let d = 1; d <= 31; d++) {
+const weekDays = [3, 4, 5, 6, 7, 8, 9]; // 5월 3일(일)~9일(토)
+weekDays.forEach((d, i) => {
   const day = document.createElement('div');
   day.classList.add('day');
-  const dayOfWeek = (firstDayIndex + d - 1) % 7;
-  if (dayOfWeek === 0) day.classList.add('sun');
-  if (dayOfWeek === 6) day.classList.add('sat');
+  if (i === 0) day.classList.add('sun'); // 일요일
+  if (i === 6) day.classList.add('sat'); // 토요일
   if (d === 9) day.classList.add('today'); // 결혼식 날짜
   if (d === 5) day.classList.add('holiday'); // 어린이날
   day.textContent = d;
   grid.appendChild(day);
-}
+});
 
-// 수정된 썸네일 로딩 코드 (빠른 썸네일 + lazyload)
+// 갤러리 이미지 목록 (파일명 업데이트)
 const imageList = [
-  'gallery/E_S00025-1.jpg', 'gallery/E_S00060-1.jpg', 'gallery/E_S00152-1.jpg', 'gallery/E_S00310-1.jpg',
-  'gallery/E_S00347-1.jpg', 'gallery/E_S00480-1.jpg', 'gallery/E_S00518-1.jpg', 'gallery/E_S00566-1.jpg',
-  'gallery/E_S00609-1.jpg', 'gallery/E_S00673-1.jpg', 'gallery/E_S00794-1.jpg', 'gallery/E_S00944-1.jpg',
-  'gallery/E_S01005-1.jpg', 'gallery/E_S01108-1.jpg', 'gallery/E_S01142-1.jpg', 'gallery/E_S01171-1.jpg',
-  'gallery/E_S01187-1.jpg', 'gallery/E_S01271-1.jpg', 'gallery/E_S01288-1.jpg', 'gallery/E_S01405-1.jpg',
-  'gallery/E_S01488-1.jpg', 'gallery/E_S01528-1.jpg', 'gallery/E_S01560-1.jpg', 'gallery/E_S01605-1.jpg',
-  'gallery/E_S01635-1.jpg', 'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1.jpg', 'gallery/E_S01742-1.jpg',
-  'gallery/E_S01754-1.jpg', 'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg',
-  'gallery/E_S01858-1.jpg', 'gallery/E_S01917-1.jpg', 'gallery/E_S01950-1.jpg',
+  'gallery/E_S00025-1(재).jpg', 'gallery/E_S00060-1(재).jpg', 'gallery/E_S00152-1(재).jpg', 'gallery/E_S00310-1(재).jpg',
+  'gallery/E_S00347-1(재).jpg', 'gallery/E_S00480-1(재).jpg', 'gallery/E_S00518-1(재).jpg', 'gallery/E_S00566-1.jpg',
+  'gallery/E_S00609-1.jpg', 'gallery/E_S00673-1(재).jpg', 'gallery/E_S00794-1.jpg', 'gallery/E_S00944-1.jpg',
+  'gallery/E_S01005-1.jpg', 'gallery/E_S01108-1(재).jpg', 'gallery/E_S01142-1.jpg', 'gallery/E_S01171-1.jpg',
+  'gallery/E_S01187-1.jpg', 'gallery/E_S01271-1(재).jpg', 'gallery/E_S01288-1(재).jpg', 'gallery/E_S01405-1(재).jpg',
+  'gallery/E_S01528-1(재).jpg', 'gallery/E_S01560-1(재).jpg', 'gallery/E_S01605-1.jpg', 'gallery/E_S01635-1.jpg',
+  'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1(재).jpg', 'gallery/E_S01742-1.jpg', 'gallery/E_S01754-1(재).jpg',
+  'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg', 'gallery/E_S01858-1(재).jpg',
+  'gallery/E_S01917-1.jpg', 'gallery/E_S01950-1.jpg',
   'gallery/KakaoTalk_Photo_2026-01-31-16-56-04 001.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpeg',
   'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpeg',
   'gallery/KakaoTalk_Photo_2026-01-31-16-56-08 005.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpeg',
@@ -101,23 +97,22 @@ let currentIndex = 0;
 const showLessBtn = document.getElementById('show-less');
 
 function loadThumbnails() {
-  const nextImages = imageList.slice(currentIndex, currentIndex + 9);
+  const nextImages = imageList.slice(currentIndex, currentIndex + 12); // 12개씩 로드
   nextImages.forEach((src, index) => {
     const img = document.createElement('img');
-    img.src = src; // 원본 이미지 로드
+    img.src = src;
     img.alt = `사진 ${currentIndex + index + 1}`;
     img.dataset.index = currentIndex + index;
     img.loading = 'lazy';
     galleryContainer.appendChild(img);
   });
-  currentIndex += 9;
+  currentIndex += 12;
   if (currentIndex >= imageList.length) {
     loadMoreBtn.style.display = 'none';
     showLessBtn.style.display = 'block';
   }
-
-  document.querySelectorAll('.gallery-thumbnails img.lazyload').forEach(img => observer.observe(img));
 }
+
 
 // 고화질 lazyload observer
 const observer = new IntersectionObserver((entries, obs) => {
@@ -146,7 +141,7 @@ showLessBtn.addEventListener('click', () => {
   showLessBtn.style.display = 'none';
 });
 
-// 라이트박스 기능 (원본 크기로 보기 + 스와이프)
+// 라이트박스 기능 (원본 크기로 보기 + 스와이프 + 뒤로가기)
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 let currentLightboxIndex = 0;
@@ -160,12 +155,29 @@ galleryContainer.addEventListener('click', (e) => {
     currentLightboxIndex = Number(e.target.dataset.index);
     lightboxImage.src = imageList[currentLightboxIndex];
     lightbox.style.display = 'flex';
+    // 히스토리에 상태 추가 (뒤로가기 시 라이트박스만 닫히게)
+    history.pushState({ lightbox: true }, '');
   }
 });
 
-document.getElementById('close-lightbox').addEventListener('click', () => {
-  lightbox.style.display = 'none';
+// 뒤로가기 버튼 처리
+window.addEventListener('popstate', (e) => {
+  if (lightbox.style.display === 'flex') {
+    lightbox.style.display = 'none';
+  }
 });
+
+function closeLightbox() {
+  if (lightbox.style.display === 'flex') {
+    lightbox.style.display = 'none';
+    // 히스토리 뒤로 가지 않고 현재 상태 유지
+    if (history.state && history.state.lightbox) {
+      history.back();
+    }
+  }
+}
+
+document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
 
 document.getElementById('prev').addEventListener('click', () => {
   currentLightboxIndex = (currentLightboxIndex - 1 + imageList.length) % imageList.length;

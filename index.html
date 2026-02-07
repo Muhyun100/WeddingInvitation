@@ -124,10 +124,10 @@
       </p>
       <div class="parents-container">
         <div class="parent-block">
-          <p class="child-name">아들 <strong>무현</strong></p>
+          <p class="child-name">아들 <strong>백무현</strong></p>
         </div>
         <div class="parent-block">
-          <p class="child-name">딸 <strong>보람</strong></p>
+          <p class="child-name">딸 <strong>이보람</strong></p>
         </div>
       </div>
     </div>
@@ -136,6 +136,22 @@
 
   </section>
 
+  <section class="gallery">
+    <h3>📸 우리의 순간들 📸</h3>
+    <div class="gallery-thumbnails" id="gallery-thumbnails">
+      <!-- JS에서 이미지 추가 -->
+    </div>
+    <button id="load-more" class="load-more">더보기</button>
+    <button id="show-less" class="show-less" style="display: none;">줄이기</button>
+  </section>
+
+  <!-- 라이트박스 (원본 크기로 보기) -->
+  <div id="lightbox" class="lightbox" style="display: none;">
+    <span id="close-lightbox" class="lightbox-close">&times;</span>
+    <span id="prev" class="lightbox-nav lightbox-prev">&#10094;</span>
+    <img id="lightbox-image" src="" alt="확대 이미지">
+    <span id="next" class="lightbox-nav lightbox-next">&#10095;</span>
+  </div>
 
   <section class="directions-guide">
     <h3>🚌 오시는 길 🚗</h3>
@@ -189,10 +205,6 @@
         🚗 <span>자가용</span>
       </div>
       <p>내비게이션: "<strong id="copy-hall-name">포스코센터</strong>" 검색</p>
-      <p><br>
-        ※ 주차는 포스코센터 지하주차장을 이용해 주세요.<br>
-        ※ 주차 요금은 4시간 무료입니다.
-      </p>
     </div>
 
     <div class="guide-item">
@@ -237,25 +249,6 @@
       </li>
     </ul>
   </section>
-
-  <section class="gallery">
-    <!-- <h3> GALLERY 📸</h3> -->
-    <h3>📸 우리의 순간들 📸</h3>
-    <div class="gallery-thumbnails" id="gallery-thumbnails">
-      <!-- JS에서 30장 이미지 추가 -->
-    </div>
-    <button id="load-more" class="load-more">더보기</button>
-    <button id="show-less" class="show-less" style="display: none;">줄이기</button>
-
-  </section>
-
-  <!-- 라이트박스 (원본 크기로 보기) -->
-  <div id="lightbox" class="lightbox" style="display: none;">
-    <span id="close-lightbox" class="lightbox-close">&times;</span>
-    <span id="prev" class="lightbox-nav lightbox-prev">&#10094;</span>
-    <img id="lightbox-image" src="" alt="확대 이미지">
-    <span id="next" class="lightbox-nav lightbox-next">&#10095;</span>
-  </div>
 
   <section class="account">
     <h3>💗 마음 전하실 곳 💗</h3>
