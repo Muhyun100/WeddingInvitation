@@ -258,16 +258,19 @@ document.addEventListener('DOMContentLoaded', () => {
     loadImage();
   }
 
-  // 배경음악 자동재생 (브라우저 정책 대응)
+  // 배경음악 자동재생 (Safari/Chrome 정책 대응)
   const audio = document.getElementById('bg-music');
   const icon = document.getElementById('music-icon');
+  let musicStarted = false;
 
   function tryPlayMusic() {
+    if (musicStarted) return;
     audio.play().then(() => {
+      musicStarted = true;
       icon.src = 'gallery/music_01_on.png';
-      // 성공하면 이벤트 리스너 제거
+      // 성공하면 모든 이벤트 리스너 제거
       document.removeEventListener('click', tryPlayMusic);
-      document.removeEventListener('touchstart', tryPlayMusic);
+      document.removeEventListener('touchend', tryPlayMusic);
       document.removeEventListener('scroll', tryPlayMusic);
     }).catch(() => {
       icon.src = 'gallery/music_01_off.png';
@@ -277,9 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 페이지 로드 시 자동재생 시도
   tryPlayMusic();
   // 브라우저가 차단할 경우, 사용자 첫 인터랙션 시 재생
-  document.addEventListener('click', tryPlayMusic, { once: false });
-  document.addEventListener('touchstart', tryPlayMusic, { once: false });
-  document.addEventListener('scroll', tryPlayMusic, { once: false });
+  // Safari는 touchend에서만 오디오 재생 허용 (touchstart 불가)
+  document.addEventListener('click', tryPlayMusic);
+  document.addEventListener('touchend', tryPlayMusic);
+  document.addEventListener('scroll', tryPlayMusic, { once: true });
 
   document.getElementById('music-toggle').addEventListener('click', () => {
     icon.style.opacity = '0.3';
@@ -329,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
       content: {
         title: '백무현 💗 이보람 결혼합니다',
         description: '2026년 5월 9일 토요일 오전 11시, 포스코센터 서관 4층 아트홀',
-        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/kakao_thumbnail.jpeg?v=4',
+        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/og_thumbnail.jpg',
         link: {
           mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
           webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
