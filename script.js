@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
       content: {
         title: '백무현 💗 이보람 결혼합니다',
         description: '2026년 5월 9일 토요일 오전 11시, 포스코센터 서관 4층 아트홀',
-        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/kakao_thumbnail.jpeg',
+        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/kakao_thumbnail.jpeg?v=4',
         link: {
           mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
           webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
