@@ -176,7 +176,7 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 65vh;
   max-width: 420px;
   margin: 0 auto;
   overflow: hidden;
@@ -222,7 +222,7 @@ body {
 
 .hero-text {
   font-family: 'Gowun Batang', cursive;
-  font-size: 1.0em;
+  font-size: 0.9em;
   color: #ffffff;
   /* 흰색으로 변경하여 가독성 확보 */
   line-height: 1.5;
@@ -238,7 +238,7 @@ body {
 
 .hero-subtext {
   font-family: 'Gowun Batang', 'Pacifico';
-  font-size: 1.0em;
+  font-size: 0.9em;
   pointer-events: auto;
   color: #ffffff;
   /* 흰색으로 변경하여 가독성 확보 */
