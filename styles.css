@@ -111,8 +111,8 @@ li {
 
 .guide-item p {
   margin: 5px 0;
-  font-size: 0.75em;
-  /* 글자 크기 75% */
+  font-size: 0.8em;
+  /* 글자 크기 통일 */
 }
 
 
@@ -810,12 +810,11 @@ footer {
 .notice-list li span,
 .notice-list li {
   font-family: 'Gowun Batang', 'Pacifico';
-  font-size: 0.95em;
+  font-size: 0.8em;
   color: #000000;
   line-height: 1.5;
   text-align: left;
   font-weight: 200;
-  /* ✅ 글씨 더 굵게 */
 
   word-break: keep-all;
   white-space: normal;
@@ -872,26 +871,35 @@ footer {
   transform: rotate(180deg);
 }
 
-/* 토글되는 정보 영역 */
+/* 계좌 라벨 (토글 대체) */
+.account-label {
+  font-family: 'Gowun Batang', 'Pacifico';
+  font-size: 1.0em;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 15px;
+  color: #333;
+}
+
+/* 토글되는 정보 영역 - 항상 표시 */
 .account-info {
-  display: none;
-  max-height: 0;
-  overflow: hidden;
+  display: block;
+  max-height: none;
+  overflow: visible;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 0 15px;
+  padding: 15px;
   margin-top: 10px;
-  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
   position: relative;
   z-index: 1;
-  pointer-events: none;
-  opacity: 0;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .account-info.open {
   display: block;
-  max-height: 1000px;
+  max-height: none;
   padding: 15px;
   pointer-events: auto;
   opacity: 1;
@@ -903,6 +911,7 @@ footer {
   flex-direction: column;
   margin: 10px 0;
   font-weight: 200;
+  font-size: 0.8em;
   word-break: keep-all;
   white-space: normal;
   overflow-wrap: break-word;

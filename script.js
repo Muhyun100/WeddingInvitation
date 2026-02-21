@@ -80,16 +80,10 @@ const imageList = [
   'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1(재).jpg', 'gallery/E_S01742-1.jpg', 'gallery/E_S01754-1(재).jpg',
   'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg', 'gallery/E_S01858-1(재).jpg',
   'gallery/E_S01917-1.jpg', 'gallery/E_S01950-1.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-04 001.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-08 005.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpg',
   'gallery/KakaoTalk_Photo_2026-01-31-16-56-11 007.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-12 008.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-13 009.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-14 010.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-15 011.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-16 012.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 013.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 014.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-19 015.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 016.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 017.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-22 018.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 019.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 020.jpg'
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-15 011.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-16 012.jpg'
 ];
 const galleryContainer = document.getElementById('gallery-thumbnails');
 const loadMoreBtn = document.getElementById('load-more');
@@ -264,17 +258,28 @@ document.addEventListener('DOMContentLoaded', () => {
     loadImage();
   }
 
-  // 배경음악 토글
+  // 배경음악 자동재생 (브라우저 정책 대응)
   const audio = document.getElementById('bg-music');
   const icon = document.getElementById('music-icon');
 
-  window.addEventListener('load', () => {
+  function tryPlayMusic() {
     audio.play().then(() => {
       icon.src = 'gallery/music_01_on.png';
+      // 성공하면 이벤트 리스너 제거
+      document.removeEventListener('click', tryPlayMusic);
+      document.removeEventListener('touchstart', tryPlayMusic);
+      document.removeEventListener('scroll', tryPlayMusic);
     }).catch(() => {
       icon.src = 'gallery/music_01_off.png';
     });
-  });
+  }
+
+  // 페이지 로드 시 자동재생 시도
+  tryPlayMusic();
+  // 브라우저가 차단할 경우, 사용자 첫 인터랙션 시 재생
+  document.addEventListener('click', tryPlayMusic, { once: false });
+  document.addEventListener('touchstart', tryPlayMusic, { once: false });
+  document.addEventListener('scroll', tryPlayMusic, { once: false });
 
   document.getElementById('music-toggle').addEventListener('click', () => {
     icon.style.opacity = '0.3';
@@ -295,19 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   });
 
-  // 계좌 토글
-  document.querySelectorAll('.account-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-target');
-      const content = document.getElementById(targetId);
-      const arrow = button.querySelector('.arrow');
-
-      const isOpen = content.classList.contains('open');
-      content.classList.toggle('open');
-      button.classList.toggle('open');
-      arrow.textContent = isOpen ? '▼' : '▲';
-    });
-  });
+  // 계좌 정보 (토글 제거 - 항상 표시)
 
   // 종이청첩장 모달
   const openInvitationBtn = document.getElementById('open-invitation');
