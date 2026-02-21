@@ -80,16 +80,16 @@ const imageList = [
   'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1(재).jpg', 'gallery/E_S01742-1.jpg', 'gallery/E_S01754-1(재).jpg',
   'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg', 'gallery/E_S01858-1(재).jpg',
   'gallery/E_S01917-1.jpg', 'gallery/E_S01950-1.jpg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-04 001.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-08 005.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-11 007.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-12 008.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-13 009.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-14 010.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-15 011.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-16 012.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 013.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 014.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-19 015.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 016.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 017.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-22 018.jpeg',
-  'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 019.jpeg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 020.jpeg'
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-04 001.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-05 002.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-06 003.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-07 004.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-08 005.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-09 006.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-11 007.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-12 008.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-13 009.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-14 010.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-15 011.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-16 012.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 013.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-18 014.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-19 015.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 016.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-21 017.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-22 018.jpg',
+  'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 019.jpg', 'gallery/KakaoTalk_Photo_2026-01-31-16-56-24 020.jpg'
 ];
 const galleryContainer = document.getElementById('gallery-thumbnails');
 const loadMoreBtn = document.getElementById('load-more');
