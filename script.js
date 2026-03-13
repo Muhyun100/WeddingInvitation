@@ -71,11 +71,11 @@ weekDays.forEach((d, i) => {
 
 // 갤러리 이미지 목록 (파일명 업데이트)
 const imageList = [
-  'gallery/E_S00025-1(재).jpg', 'gallery/E_S00060-1(재).jpg', 'gallery/E_S00152-1(재).jpg', 'gallery/E_S00310-1(재).jpg',
-  'gallery/E_S00347-1(재).jpg', 'gallery/E_S00480-1(재).jpg', 'gallery/E_S00518-1(재).jpg', 'gallery/E_S00566-1.jpg',
+  'gallery/E_S00025-1(최종).jpeg', 'gallery/E_S00060-1(재).jpg', 'gallery/E_S00152-1(재).jpg', 'gallery/E_S00310-1(재).jpg',
+  'gallery/E_S00347-1(재).jpg', 'gallery/E_S00480-1(재).jpg', 'gallery/E_S00518-1(최종).jpeg', 'gallery/E_S00566-1.jpg',
   'gallery/E_S00609-1.jpg', 'gallery/E_S00673-1(재).jpg', 'gallery/E_S00794-1.jpg', 'gallery/E_S00944-1.jpg',
   'gallery/E_S01005-1.jpg', 'gallery/E_S01108-1(재).jpg', 'gallery/E_S01142-1.jpg', 'gallery/E_S01171-1.jpg',
-  'gallery/E_S01187-1.jpg', 'gallery/E_S01271-1(재).jpg', 'gallery/E_S01288-1(재).jpg', 'gallery/E_S01405-1(재).jpg',
+  'gallery/E_S01187-1.jpg', 'gallery/E_S01271-1(재).jpg', 'gallery/E_S01288-1(최종).jpeg', 'gallery/E_S01405-1(최종).jpeg',
   'gallery/E_S01528-1(재).jpg', 'gallery/E_S01560-1(재).jpg', 'gallery/E_S01605-1.jpg', 'gallery/E_S01635-1.jpg',
   'gallery/E_S01644-1.jpg', 'gallery/E_S01711-1(재).jpg', 'gallery/E_S01742-1.jpg', 'gallery/E_S01754-1(재).jpg',
   'gallery/E_S01803-1.jpg', 'gallery/E_S01822-1.jpg', 'gallery/E_S01844-1.jpg', 'gallery/E_S01858-1(재).jpg',
