@@ -325,31 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Kakao 공유
-  Kakao.init('add6eefb5d19f3b8ab4c20cd75e5691e');
-  document.getElementById('kakaotalk-sharing-btn').addEventListener('click', function () {
-    Kakao.Share.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '백무현 💗 이보람 결혼합니다',
-        description: '2026년 5월 9일 토요일 오전 11시, 포스코센터 서관 4층 아트홀',
-        imageUrl: 'https://muhyun100.github.io/WeddingInvitation/og_thumbnail.jpg',
-        link: {
-          mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
-          webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
-        },
-      },
-      buttons: [
-        {
-          title: '모바일 청첩장 보기',
-          link: {
-            mobileWebUrl: 'https://muhyun100.github.io/WeddingInvitation/',
-            webUrl: 'https://muhyun100.github.io/WeddingInvitation/',
-          },
-        },
-      ],
-    });
-  });
+
 
   // Kakao Map 바로 로딩
   loadKakaoMap();
