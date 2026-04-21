@@ -14,7 +14,7 @@ function getDayDiffForMessage(targetDate) {
 
 function getCountdown(targetDate) {
   const now = new Date().getTime();
-  const target = new Date(targetDate + "T00:00:00").getTime();
+  const target = new Date(targetDate + "T11:00:00").getTime();
   const distance = target - now;
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
